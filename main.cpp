@@ -4,6 +4,12 @@
 #include <chrono>
 #include <thread>
 #include <filesystem>
+#include <Windows.h>
+
+void hideConsoleWindow() {
+    HWND hwnd = GetConsoleWindow();
+    ShowWindow(hwnd, SW_HIDE);
+}
 
 void parseConfig(const std::string& filename, std::string& date, std::string& time, std::string& path) {
     std::ifstream file(filename);
@@ -26,6 +32,8 @@ void writeInputFile(const std::tm& tm, const std::string& path, const std::strin
 }
 
 int main() {
+    hideConsoleWindow();
+
     std::string date, time, path;
     parseConfig("folder_config.txt", date, time, path);
 
@@ -66,7 +74,7 @@ int main() {
             std::filesystem::remove_all(path);
             break;
         }
-        std::this_thread::sleep_for(std::chrono::minutes(5));
+        std::this_thread::sleep_for(std::chrono::minutes(1));
     }
 
     return 0;
