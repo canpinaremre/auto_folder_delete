@@ -9,9 +9,9 @@
 - In case of invalid input, input.txt will display error and program exit right away
 
 # Example folder config
-Date: 14.02.2024
-Time: 00:08
-Path: C:\Users\90554\Desktop\deneme\deneme
+- Date: 14.02.2024
+- Time: 00:08
+- Path: C:\Users\90554\Desktop\deneme\deneme
 
 # Implement
 - Run startup.bat script or,
